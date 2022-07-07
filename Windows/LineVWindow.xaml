@@ -1,0 +1,340 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LineLauncher"
+        xmlns:Wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" x:Class="LineLauncher.LineVWindow"
+        mc:Ignorable="d"
+        Title="LineV Launcher" Height="545" Width="1140"
+		Loaded="Window_Loaded"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" Icon="/Resources/LauncherIcon.png">
+    <Grid Name="MainGrid" Height="530" Margin="10,0,-328,-80" HorizontalAlignment="Left" Width="1128">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="212*" />
+            <RowDefinition Height="319*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*" />
+            <ColumnDefinition Width="16*" />
+            <ColumnDefinition Width="39*" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="165*" />
+            <ColumnDefinition Width="869*" />
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Left" Height="530" Margin="0,-40,0,0" VerticalAlignment="Top" Width="930" Source="/Resources/LineVBackground.png" Grid.ColumnSpan="6" Grid.RowSpan="2" />
+        <Image HorizontalAlignment="Left" Height="530" Margin="587,-40,-4,0" VerticalAlignment="Top" Width="286" Source="/Resources/LineVRightSide.png" Grid.Column="5" Grid.RowSpan="2" />
+        <Image
+			Name="CloseBtn"
+			HorizontalAlignment="Left"
+			Height="44"
+			Margin="643,-34,0,0"
+			VerticalAlignment="Top"
+			Width="16"
+			Grid.Column="5"
+			MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown">
+            <FrameworkElement.Style>
+                <Style>
+                    <Setter
+						Property="Image.Source"
+						Value="/Resources/Close.png" />
+                    <Style.Triggers>
+                        <Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+                            <Setter
+								Property="Image.Source"
+								Value="/Resources/Close_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </FrameworkElement.Style>
+        </Image>
+        <Image
+			Name="Minimize"
+			HorizontalAlignment="Left"
+			Height="44"
+			Margin="607,-40,0,0"
+			VerticalAlignment="Top"
+			Width="18"
+			Grid.Column="5"
+			MouseLeftButtonDown="Minimize_MouseLeftButtonDown">
+            <FrameworkElement.Style>
+                <Style>
+                    <Setter
+						Property="Image.Source"
+						Value="/Resources/Minimize.png" />
+                    <Style.Triggers>
+                        <Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+                            <Setter
+								Property="Image.Source"
+								Value="/Resources/Minimize_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </FrameworkElement.Style>
+        </Image>
+        <Image
+			HorizontalAlignment="Left"
+			Height="530"
+			Margin="-2,-40,0,0"
+			VerticalAlignment="Top"
+			Width="1128"
+			Source="/Resources/LineVLeftSide.png"
+			Grid.ColumnSpan="6"
+			Grid.RowSpan="2" />
+        <Image
+			HorizontalAlignment="Left"
+			Height="62"
+			Margin="-16,-51,0,0"
+			VerticalAlignment="Top"
+			Width="191"
+			Source="/Resources/LineVLogo.png"
+			Grid.ColumnSpan="5" />
+        <Image
+			Name="Website"
+			HorizontalAlignment="Left"
+			Height="52"
+			Margin="1,42,0,0"
+			VerticalAlignment="Top"
+			Width="152"
+			Grid.ColumnSpan="4"
+			Grid.Column="1"
+			MouseLeftButtonDown="Website_MouseLeftButtonDown">
+            <FrameworkElement.Style>
+                <Style>
+                    <Setter
+						Property="Image.Source"
+						Value="/Resources/Website.png" />
+                    <Style.Triggers>
+                        <Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+                            <Setter
+								Property="Image.Source"
+								Value="/Resources/Website_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </FrameworkElement.Style>
+        </Image>
+        <Image
+			Name="Discord"
+			HorizontalAlignment="Left"
+			Height="52"
+			Margin="1,102,0,0"
+			VerticalAlignment="Top"
+			Width="152"
+			Grid.ColumnSpan="4"
+			Grid.Column="1"
+			MouseLeftButtonDown="Discord_MouseLeftButtonDown">
+            <FrameworkElement.Style>
+                <Style>
+                    <Setter
+						Property="Image.Source"
+						Value="/Resources/Discord.png" />
+                    <Style.Triggers>
+                        <Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+                            <Setter
+								Property="Image.Source"
+								Value="/Resources/Discord_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </FrameworkElement.Style>
+        </Image>
+        <Image
+			Name="Teamspeak"
+			HorizontalAlignment="Left"
+			Height="52"
+			Margin="1,162,0,0"
+			VerticalAlignment="Top"
+			Width="152"
+			Grid.ColumnSpan="4"
+			Grid.Column="1"
+			Grid.RowSpan="2"
+			MouseLeftButtonDown="Teamspeak_MouseLeftButtonDown">
+            <FrameworkElement.Style>
+                <Style>
+                    <Setter
+						Property="Image.Source"
+						Value="/Resources/Teamspeak.png" />
+                    <Style.Triggers>
+                        <Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+                            <Setter
+								Property="Image.Source"
+								Value="/Resources/Teamspeak_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </FrameworkElement.Style>
+        </Image>
+        <Grid
+			HorizontalAlignment="Left"
+			Height="165"
+			Margin="4,98.5,0,0"
+			VerticalAlignment="Top"
+			Width="160"
+			ColumnSpan="5"
+			Row="1">
+            <Panel.Background>
+                <ImageBrush
+					ImageSource="/Resources/CharacterInfo.png" />
+            </Panel.Background>
+            <Image
+				Height="60"
+				Margin="50,30,0,0"
+				Width="60"
+				Source="/Resources/DefaultAvatar.png"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Left" />
+            <TextBlock
+				Name="CharacterName"
+				Margin="0,99,0,0"
+				TextWrapping="Wrap"
+				Text="İsimsiz"
+				VerticalAlignment="Top"
+				Foreground="#FFFFFFFF"
+				FontFamily="Calibri"
+				FontSize="16"
+				Width="160"
+				HorizontalAlignment="Left"
+				TextAlignment="Center"
+				FontWeight="Bold" />
+            <TextBlock
+				Name="CharacterJob"
+				HorizontalAlignment="Left"
+				Margin="0,120,0,0"
+				TextWrapping="Wrap"
+				Text="İşsiz"
+				VerticalAlignment="Top"
+				Foreground="#FFFFFFFF"
+				FontFamily="Calibri"
+				FontSize="14"
+				Width="160"
+				TextAlignment="Center" />
+        </Grid>
+        <Wpf:WebView2
+			Name="webView"
+			HorizontalAlignment="Left"
+			Height="322"
+			Margin="115,22,0,0"
+			VerticalAlignment="Top"
+			Width="625"
+			ScrollViewer.VerticalScrollBarVisibility="Disabled"
+			Grid.ColumnSpan="2"
+			Grid.Column="4"
+			Grid.RowSpan="2"
+			NavigationCompleted="webView_NavigationCompleted" />
+        <Grid
+			HorizontalAlignment="Left"
+			Height="53"
+			Margin="115,199.5,0,0"
+			VerticalAlignment="Top"
+			Width="169"
+			ColumnSpan="2"
+			Column="4"
+			Row="1">
+            <Panel.Background>
+                <ImageBrush
+					ImageSource="/Resources/ButtonSmall.png" />
+            </Panel.Background>
+            <TextBlock
+				Margin="0,1,0,0"
+				TextWrapping="Wrap"
+				Text="Sunucu Durumu"
+				VerticalAlignment="Top"
+				Foreground="#FFFFFFFF"
+				FontFamily="Calibri"
+				FontSize="16"
+				Width="169"
+				HorizontalAlignment="Left"
+				LineHeight="20"
+				TextAlignment="Center" />
+            <TextBlock
+				Name="ServerStatus"
+				HorizontalAlignment="Left"
+				Margin="0,18,0,0"
+				TextWrapping="Wrap"
+				Text="Aktif"
+				VerticalAlignment="Top"
+				Foreground="#FFFFFFFF"
+				FontFamily="Calibri"
+				FontSize="28"
+				Width="169"
+				LineHeight="34"
+				TextAlignment="Center"
+				FontWeight="Bold" />
+        </Grid>
+        <Grid
+			HorizontalAlignment="Left"
+			Height="53"
+			Margin="145,199.5,0,0"
+			VerticalAlignment="Top"
+			Width="170"
+			Column="5"
+			Row="1">
+            <Panel.Background>
+                <ImageBrush
+					ImageSource="/Resources/ButtonSmall.png" />
+            </Panel.Background>
+            <TextBlock
+				Margin="0,1,0,0"
+				TextWrapping="Wrap"
+				Text="Sunucu Tarihi"
+				VerticalAlignment="Top"
+				Foreground="#FFFFFFFF"
+				FontFamily="Calibri"
+				FontSize="16"
+				Width="169"
+				HorizontalAlignment="Left"
+				LineHeight="20"
+				TextAlignment="Center" />
+            <TextBlock
+				Name="ServerDate"
+				HorizontalAlignment="Left"
+				Margin="0,18,0,0"
+				TextWrapping="Wrap"
+				Text="05.07.2024"
+				VerticalAlignment="Top"
+				Foreground="#FFFFFFFF"
+				FontFamily="Calibri"
+				FontSize="26"
+				Width="169"
+				LineHeight="34"
+				TextAlignment="Center"
+				FontWeight="Bold" />
+        </Grid>
+        <Image
+			Name="Play"
+			HorizontalAlignment="Left"
+			Height="74"
+			Margin="342,178,0,0"
+			VerticalAlignment="Top"
+			Width="233"
+			Grid.Column="5"
+			Grid.Row="1"
+			MouseLeftButtonDown="Play_MouseLeftButtonDown">
+            <FrameworkElement.Style>
+                <Style>
+                    <Setter Property="Image.Source" Value="/Resources/ButtonPlay.png" />
+                    <Style.Triggers>
+                        <Trigger
+							Property="UIElement.IsMouseOver"
+							Value="True">
+                            <Setter
+								Property="Image.Source"
+								Value="/Resources/ButtonPlay_Hover.png" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </FrameworkElement.Style>
+        </Image>
+    </Grid>
+</Window>

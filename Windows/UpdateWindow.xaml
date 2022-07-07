@@ -1,0 +1,14 @@
+﻿<Window x:Class="LineLauncher.UpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LineLauncher"
+        mc:Ignorable="d"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Resources/LauncherIcon.png" Title="UpdateWindow" Height="300" Width="500">
+    <Grid>
+        <Image HorizontalAlignment="Center" Height="242" VerticalAlignment="Top" Width="500" Source="/Resources/LauncherIcon.png" Margin="-30,0,30,0"/>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="10" Margin="82,247,0,0" VerticalAlignment="Top" Width="284" Foreground="#FFDA2E46" BorderBrush="#00DA2E46" Background="#00000000"/>
+
+    </Grid>
+</Window>
