@@ -12,6 +12,7 @@ namespace LineLauncher
 {
     public partial class LineOWindow : Window
     {
+        private Server server;
         private Window loadingWindow = new LoadingWindow();
 
         public LineOWindow()
@@ -78,6 +79,23 @@ namespace LineLauncher
         private void Discord_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             LauncherManager.LaunchDiscord(LineOInfo.discordLink);
+        }
+
+        private void Play_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Logger.Debug("LineO Play pressed.");
+            FiveMManager.LaunchFiveM(this.server);
+            base.WindowState = WindowState.Minimized;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.server = new Server(LauncherInfo.LineO);
+            LineOServerInfo lineOServerInfo = (LineOServerInfo)this.server.ServerInfo;
+            this.ServerStatus.Text = LauncherManager.GetServerStatusText(lineOServerInfo.Status);
+            this.ServerPlayerCount.Text = lineOServerInfo.OnlinePlayers + " / " + lineOServerInfo.MaxPlayers;
+            Logger.Debug(string.Format("LineO Server Status: {0}", lineOServerInfo.Status));
+            Logger.Debug(string.Format("LineO Server Player Count: {0}", lineOServerInfo.OnlinePlayers + " / " + lineOServerInfo.MaxPlayers));
         }
     }
 }

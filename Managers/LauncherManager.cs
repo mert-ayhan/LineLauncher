@@ -36,9 +36,9 @@ namespace LineLauncher.Managers
             Process.Start(psInfo);
         }
 
-        public static void GiveAuthentication(Character character)
+        public static string GetServerStatusText(string status)
         {
-
+            return (status.Equals("online") ? "Aktif" : "Kapalı");
         }
     }
 }

@@ -36,7 +36,7 @@ namespace LineLauncher
             await webView.EnsureCoreWebView2Async(webView2Environment);
             webView.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
             webView.CoreWebView2.Settings.IsStatusBarEnabled = false;
-            webView.Source = new Uri(LineZInfo.newsWebUrl);
+            webView.Source = new Uri(LineVInfo.newsWebUrl);
             Logger.Debug("LineV WebView initialized.");
         }
 
