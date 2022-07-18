@@ -1,8 +1,8 @@
 name: Win32Sample GitHub Release
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [ master ]
+
 jobs:
   create_release:
     name: Create GitHub Release
