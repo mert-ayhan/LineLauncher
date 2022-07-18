@@ -1,7 +1,6 @@
 name: GitHub Release
 on:
   push:
-    branches: [ master ]
     tags:
       - 'v*'
 
