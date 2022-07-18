@@ -23,6 +23,9 @@ jobs:
       - name: Build Artifact
         shell: cmd
         run: call .\ArtifactBuild.cmd
+      - name: Get The Version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
@@ -33,7 +36,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           body: |
             Automated Release by GitHub Action CI
-            Line Launcher - version ${{ github.ref }}
+            Line Launcher - version ${{ steps.get_version.outputs.VERSION }}
           draft: false
           prerelease: true
       - name: Upload Release Asset
@@ -44,5 +47,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./LineLauncher.zip
-          asset_name: launcher_${{ github.ref }}.zip
+          asset_name: launcher_${{ steps.get_version.outputs.VERSION }}.zip
           asset_content_type: application/zip
