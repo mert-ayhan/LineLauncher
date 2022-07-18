@@ -43,4 +43,42 @@ namespace LineLauncher.Classes
 			}
 		}
 	}
+
+	public partial class ServerInfo
+	{
+		public string Server { get; set; }
+		public string IP { get; set; }
+		public string Port { get; set; }
+		public string Code { get; set; }
+	}
+
+	public partial class LineVServerInfo : ServerInfo
+	{
+		public string Status { get; set; }
+		public string Date { get; set; }
+
+		public LineVServerInfo(string status, string date)
+		{
+			this.Status = status;
+			this.Date = date;
+		}
+	}
+
+	public partial class LineOServerInfo : ServerInfo
+	{
+		[JsonProperty("ip")]
+		public new string IP { get; set; }
+
+		[JsonProperty("port")]
+		public new string Port { get; set; }
+
+		[JsonProperty("status")]
+		public string Status { get; set; }
+
+		[JsonProperty("onlinePlayers")]
+		public string OnlinePlayers { get; set; }
+
+		[JsonProperty("maxPlayers")]
+		public string MaxPlayers { get; set; }
+	}
 }

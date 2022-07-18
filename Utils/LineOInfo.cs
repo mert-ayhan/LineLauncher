@@ -9,7 +9,7 @@
         public static string discordLink = "https://discord.gg/lineo";
 
         //API
-        public static string APIUrl = "https://line-o.com/lineo-launcher-api";
+        public static string APIUrl = "https://launcher-api.line-o.com/lineo-launcher-api";
         public static string serverInfoAPIAction = "getServerInfo";
 
         //News
