@@ -1,4 +1,5 @@
 @echo off
+cd ../..
 pushd "%~dp0"
 cd bin/Release
 del /f *.xml *.config *.pdb *.exe
