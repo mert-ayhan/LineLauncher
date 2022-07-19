@@ -19,7 +19,7 @@ jobs:
         run: nuget restore line-launcher.sln
       - name: Build Binary
         shell: cmd
-        run: call .\.github\scripts\Build.cmd
+        run: call .\Build.cmd
       - name: Create Code Signing Certificate
         run: |
           New-Item -ItemType directory -Path certificate
@@ -30,7 +30,7 @@ jobs:
           & 'C:/Program Files (x86)/Windows Kits/10/bin/10.0.17763.0/x86/signtool.exe' sign /f certificate\certificate.pfx /p '${{ secrets.CERTIFICATE_PASS }}' /t http://timestamp.comodoca.com/authenticode bin\Release\Obfuscator_Output\line-launcher.exe
       - name: Build Artifact
         shell: cmd
-        run: call .\.github\scripts\ArtifactBuild.cmd
+        run: call .\ArtifactBuild.cmd
       - id: get_version
         uses: battila7/get-version-action@v2
       - name: Create Release
