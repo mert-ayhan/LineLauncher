@@ -92,7 +92,7 @@ namespace LineLauncher
         {
             this.server = new Server(LauncherInfo.LineO);
             LineOServerInfo lineOServerInfo = (LineOServerInfo)this.server.ServerInfo;
-            this.ServerStatus.Text = LauncherManager.GetServerStatusText(lineOServerInfo.Status);
+            this.ServerStatus.Text = LauncherManager.GetServerStatusText(lineOServerInfo.Status, lineOServerInfo.Maintenance);
             this.ServerPlayerCount.Text = lineOServerInfo.OnlinePlayers + " / " + lineOServerInfo.MaxPlayers;
             Logger.Debug(string.Format("LineO Server Status: {0}", lineOServerInfo.Status));
             Logger.Debug(string.Format("LineO Server Player Count: {0}", lineOServerInfo.OnlinePlayers + " / " + lineOServerInfo.MaxPlayers));

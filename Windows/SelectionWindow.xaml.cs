@@ -13,14 +13,7 @@ namespace LineLauncher
         private byte state = 0;
 
         public SelectionWindow()
-        {
-            if (SteamManager.GetSteamID3() == "0" || !SteamManager.IsRunning())
-            {
-                Logger.Error("Need to start steam first!");
-                MessageBox.Show("Launcher'ı başlatabilmeniz için Steam'in çalışır durumda olması gerekmektedir!", "HATA!");
-                System.Windows.Application.Current.Shutdown();
-            }
-
+        { 
             InitializeComponent();
         }
 
@@ -76,6 +69,13 @@ namespace LineLauncher
 
         private void LineVPolygon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (SteamManager.GetSteamID3() == "0" || !SteamManager.IsRunning())
+            {
+                Logger.Error("Need to start steam first!");
+                MessageBox.Show("LineV Launcher'ı başlatabilmeniz için Steam'in çalışır durumda olması gerekmektedir!", "HATA!");
+                return;
+            }
+
             Logger.Debug("LineV selected.");
             this.Hide();
             LineVWindow window = new LineVWindow();

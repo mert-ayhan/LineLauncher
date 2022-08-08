@@ -25,9 +25,18 @@ jobs:
           New-Item -ItemType directory -Path certificate
           Set-Content -Path certificate\certificate.txt -Value '${{ secrets.CERTIFICATE }}'
           certutil -decode certificate\certificate.txt certificate\certificate.pfx
-      - name: Code Sign
+      – name: Code Sign
+        shell: powershell
         run: |
-          & 'C:/Program Files (x86)/Windows Kits/10/bin/10.0.17763.0/x86/signtool.exe' sign /f certificate\certificate.pfx /p '${{ secrets.CERTIFICATE_PASS }}' /t http://timestamp.comodoca.com/authenticode bin\Release\Obfuscator_Output\line-launcher.exe
+          $moduleName = "EnterDeveloperPowerShell"
+          $module = Get-InstalledModule $moduleName -ErrorAction SilentlyContinue
+          if (-not $module) {
+          Write-Host "Installing module: $moduleName"
+          Install-Module -Name $moduleName -Force
+          }
+          Import-Module $moduleName
+          Enter-VisualStudioDeveloperShell
+          . signtool.exe sign /f certificate\certificate.pfx /p '${{ secrets.CERTIFICATE_PASS }}' /t http://timestamp.comodoca.com/authenticode bin\Release\Obfuscator_Output\line-launcher.exe
       - name: Build Artifact
         shell: cmd
         run: call .\ArtifactBuild.cmd

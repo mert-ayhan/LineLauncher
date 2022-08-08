@@ -76,9 +76,12 @@ namespace LineLauncher.Classes
 		public string Status { get; set; }
 
 		[JsonProperty("onlinePlayers")]
-		public string OnlinePlayers { get; set; }
+		public int OnlinePlayers { get; set; }
 
 		[JsonProperty("maxPlayers")]
 		public string MaxPlayers { get; set; }
+
+		[JsonProperty("maintenance")]
+		public bool Maintenance { get; set; }
 	}
 }

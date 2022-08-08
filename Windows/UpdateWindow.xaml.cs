@@ -20,7 +20,7 @@ namespace LineLauncher
             Logger.Info("-----------------------------------------------------------------");
             Logger.Debug("Application launched.");
 
-            Launcher.Version = "1.1.3";
+            Launcher.Version = "1.1.4";
             Logger.Info(String.Format("Version: {0}", Launcher.Version));
 
             if (Updater.CheckUpdate() == true)

@@ -36,9 +36,9 @@ namespace LineLauncher.Managers
             Process.Start(psInfo);
         }
 
-        public static string GetServerStatusText(string status)
+        public static string GetServerStatusText(string status, bool maintenance)
         {
-            return (status.Equals("online") ? "Aktif" : "Kapalı");
+            return (status.Equals("online") ? !maintenance ? "Aktif" : "Bakımda" : "Kapalı");
         }
     }
 }

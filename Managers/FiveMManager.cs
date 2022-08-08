@@ -35,7 +35,7 @@ namespace LineLauncher.Managers
 			else if (server.ServerInfo.Server == LauncherInfo.LineO)
 			{
 				LineOServerInfo serverInfo = (LineOServerInfo)server.ServerInfo;
-				if (serverInfo.Status == "online")
+				if (serverInfo.Status == "online" && !serverInfo.Maintenance)
 				{
 					Process.Start("explorer.exe", "fivem://connect/cfx.re/join/" + serverInfo.Code);
 				}
