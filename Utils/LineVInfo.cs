@@ -1,4 +1,6 @@
-﻿namespace LineLauncher.Utils
+﻿using System;
+
+namespace LineLauncher.Utils
 {
     class LineVInfo
     {

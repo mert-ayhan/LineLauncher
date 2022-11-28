@@ -26,14 +26,39 @@ namespace LineLauncher.Managers
             Process.Start(psInfo);
         }
 
-        public static void LaunchTeamSpeak3()
+        public static void LaunchSteamGame(string server)
         {
-            ProcessStartInfo psInfo = new ProcessStartInfo
+            if (server == LauncherInfo.LineG)
             {
-                FileName = "ts3server://" + LineVInfo.teamspeakIP + "?port=" + LineVInfo.teamspeakPort + "&password=" + LineVInfo.teamspeakPassword,
-                UseShellExecute = true
-            };
-            Process.Start(psInfo);
+                ProcessStartInfo psInfo = new ProcessStartInfo
+                {
+                    FileName = "steam://connect/" + LineGInfo.gameIP + ":" + LineGInfo.gamePort,
+                    UseShellExecute = true
+                };
+                Process.Start(psInfo);
+            }
+        }
+
+        public static void LaunchTeamSpeak3(string server)
+        {
+            if (server == LauncherInfo.LineV)
+            {
+                ProcessStartInfo psInfo = new ProcessStartInfo
+                {
+                    FileName = "ts3server://" + LineVInfo.teamspeakIP + "?port=" + LineVInfo.teamspeakPort + "&password=" + LineVInfo.teamspeakPassword,
+                    UseShellExecute = true
+                };
+                Process.Start(psInfo);
+            }
+            else if (server == LauncherInfo.LineG)
+            {
+                ProcessStartInfo psInfo = new ProcessStartInfo
+                {
+                    FileName = "ts3server://" + LineGInfo.teamspeakIP + "?port=" + LineGInfo.teamspeakPort + "&password=" + LineGInfo.teamspeakPassword,
+                    UseShellExecute = true
+                };
+                Process.Start(psInfo);
+            }
         }
 
         public static string GetServerStatusText(string status, bool maintenance)

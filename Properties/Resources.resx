@@ -154,6 +154,15 @@
   <data name="LauncherIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LauncherIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LineGBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LineGBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LineGLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LineGLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LineGRightSide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LineGRightSide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LineVBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LineVBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,6 +195,9 @@
   </data>
   <data name="Selection" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Selection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SelectionNewLineC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SelectionNewLineC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Selection_LineV" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Selection_LineV.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

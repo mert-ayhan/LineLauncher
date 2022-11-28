@@ -183,6 +183,36 @@ namespace line_launcher.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap LineGBackground {
+            get {
+                object obj = ResourceManager.GetObject("LineGBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap LineGLogo {
+            get {
+                object obj = ResourceManager.GetObject("LineGLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap LineGRightSide {
+            get {
+                object obj = ResourceManager.GetObject("LineGRightSide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap LineVBackground {
             get {
                 object obj = ResourceManager.GetObject("LineVBackground", resourceCulture);
@@ -306,6 +336,16 @@ namespace line_launcher.Properties {
         internal static System.Drawing.Bitmap Selection_LineZ {
             get {
                 object obj = ResourceManager.GetObject("Selection_LineZ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap SelectionNewLineC {
+            get {
+                object obj = ResourceManager.GetObject("SelectionNewLineC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

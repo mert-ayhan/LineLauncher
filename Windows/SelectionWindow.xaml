@@ -13,7 +13,7 @@
     <Grid MouseMove="Grid_MouseMove">
         <Polygon x:Name="LineVPolygon" Points="0 0, 518 0, 606 390, 0 517" Stroke="Transparent" Fill="Transparent" MouseLeftButtonDown="LineVPolygon_MouseLeftButtonDown" />
         <Polygon x:Name="LineZPolygon" Points="528 0, 1218 0, 1218 288, 616 386" Stroke="Transparent" Fill="Transparent" MouseLeftButtonDown="LineZPolygon_MouseLeftButtonDown" />
-        <Polygon x:Name="LineOPolygon" Points="0 519, 610 394, 704 800, 0 800" Stroke="Transparent" Fill="Transparent" MouseLeftButtonDown="LineOPolygon_MouseLeftButtonDown" />
+        <Polygon x:Name="LineGPolygon" Points="0 519, 610 394, 704 800, 0 800" Stroke="Transparent" Fill="Transparent" MouseLeftButtonDown="LineGPolygon_MouseLeftButtonDown" />
         <Polygon x:Name="LineCPolygon" Points="622 394, 1218 308, 1218 800, 716 800" Stroke="Transparent" Fill="Transparent" MouseLeftButtonDown="LineCPolygon_MouseLeftButtonDown" />
         <Image x:Name="CloseBtn" HorizontalAlignment="Left" Height="44" Margin="1187,2,0,0" VerticalAlignment="Top" Width="16" MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown">
             <Image.Style>

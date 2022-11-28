@@ -4,22 +4,22 @@ using LineLauncher.Utils;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
 namespace LineLauncher
 {
-    public partial class LineVWindow : Window
+    public partial class LineGWindow : Window
     {
-        private Character character;
-        private Server server;
+        //private Server server;
         private Window loadingWindow = new LoadingWindow();
 
-        public LineVWindow()
+        public LineGWindow()
         {
             InitializeComponent();
-            Logger.Debug("LineV window initialized.");
+            Logger.Debug("LineG window initialized.");
             webView.Visibility = Visibility.Collapsed;
             MainGrid.Visibility = Visibility.Hidden;
             InitializeWebView();
@@ -36,27 +36,26 @@ namespace LineLauncher
             await webView.EnsureCoreWebView2Async(webView2Environment);
             webView.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
             webView.CoreWebView2.Settings.IsStatusBarEnabled = false;
-            webView.Source = new Uri(LineVInfo.newsWebUrl);
-            Logger.Debug("LineV WebView initialized.");
+            webView.CoreWebView2.Settings.AreDevToolsEnabled = false;
+            webView.Source = new Uri("https://launcher.linev.net/lineg-launcher-web");
+            Logger.Debug("LineG WebView initialized.");
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left && !this.Website.IsMouseOver && !this.Discord.IsMouseOver && !this.Teamspeak.IsMouseOver && !this.Play.IsMouseOver)
-            {
-                base.DragMove();
-            }
+            if (e.ChangedButton == MouseButton.Left && !Website.IsMouseOver && !Discord.IsMouseOver && !Play.IsMouseOver)
+                this.DragMove();
         }
 
         private void CloseBtn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("Application closed on LineV window.");
+            Logger.Debug("Application closed on LineG window.");
             System.Windows.Application.Current.Shutdown();
         }
 
         private void Minimize_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("Application minimized on LineV window.");
+            Logger.Debug("Application minimized on LineG window.");
             WindowState = WindowState.Minimized;
         }
 
@@ -69,48 +68,35 @@ namespace LineLauncher
                 MainGrid.Visibility = Visibility.Visible;
                 loadingWindow.Hide();
                 this.Show();
-                Logger.Debug("LineV window showed.");
+                Logger.Debug("LineG window showed.");
             }
         }
 
         private void Website_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("LineV WebUrl pressed.");
-            LauncherManager.LaunchWebUrl(LineVInfo.webUrl);
+            LauncherManager.LaunchWebUrl(LineGInfo.webUrl);
         }
 
         private void Discord_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("LineV Discord pressed.");
-            LauncherManager.LaunchDiscord(LineVInfo.discordLink);
-        }
-
-        private void Teamspeak_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Logger.Debug("LineV TeamSpeak3 pressed.");
-            LauncherManager.LaunchTeamSpeak3(LauncherInfo.LineV);
+            LauncherManager.LaunchDiscord(LineGInfo.discordLink);
         }
 
         private void Play_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("LineV Play pressed.");
-            FiveMManager.LaunchFiveM(this.server);
+            Logger.Debug("LineG Play pressed.");
+            LauncherManager.LaunchSteamGame(LauncherInfo.LineG);
             base.WindowState = WindowState.Minimized;
+        }
+
+        private void Teamspeak_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Logger.Debug("LineG TeamSpeak3 pressed.");
+            LauncherManager.LaunchTeamSpeak3(LauncherInfo.LineG);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string identifier = SteamManager.ConvertSteamIDHex(SteamManager.ConvertSteamID64(SteamManager.GetSteamID3()));
-            this.character = new Character(identifier);
-            this.server = new Server(LauncherInfo.LineV);
-            LineVServerInfo lineVServerInfo = (LineVServerInfo)this.server.ServerInfo;
-            this.CharacterName.Text = this.character.CharacterInfo.Name;
-            this.CharacterJob.Text = this.character.CharacterInfo.Job;
-            Logger.Debug(string.Format("LineV Character Name: {0} - Character Job: {1}", this.character.CharacterInfo.Name, this.character.CharacterInfo.Job));
-            this.ServerStatus.Text = lineVServerInfo.Status;
-            this.ServerDate.Text = lineVServerInfo.Date;
-            Logger.Debug(string.Format("LineV Server Status: {0}", lineVServerInfo.Status));
-            Logger.Debug(string.Format("LineV Server Date: {0}", lineVServerInfo.Date));
         }
     }
 }

@@ -44,7 +44,7 @@ namespace LineLauncher
                 this.Background = b;
                 this.state = 2;
             }
-            else if (this.state != 3 && LineOPolygon.IsMouseOver)
+            else if (this.state != 3 && LineGPolygon.IsMouseOver)
             {
                 ImageBrush b = new ImageBrush();
                 b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/SelectionNewLineO.png"));
@@ -54,7 +54,7 @@ namespace LineLauncher
             else if (this.state != 4 && LineCPolygon.IsMouseOver)
             {
                 ImageBrush b = new ImageBrush();
-                b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/SelectionNew.png"));
+                b.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/SelectionNewLineC.png"));
                 this.Background = b;
                 this.state = 4;
             }
@@ -84,17 +84,13 @@ namespace LineLauncher
 
         private void LineZPolygon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("LineZ selected.");
-            this.Hide();
-            LineZWindow window = new LineZWindow();
-            window.Show();
         }
 
-        private void LineOPolygon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void LineGPolygon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Logger.Debug("LineO selected.");
+            Logger.Debug("LineG selected.");
             this.Hide();
-            LineOWindow window = new LineOWindow();
+            LineGWindow window = new LineGWindow();
             window.Show();
         }
 

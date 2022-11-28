@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LineLauncher.Utils;
+using System;
 using System.Diagnostics;
 using System.Net;
 
@@ -30,7 +31,7 @@ namespace LineLauncher.Classes
 
         public static string LauncherUrl()
         {
-            return "http://launcher.linev.net/line-launcher/files/launcher_" + GetVersion() + ".zip";
+            return LauncherInfo.zipUrl + GetVersion() + ".zip";
         }
 
         public static void RunCommand()
